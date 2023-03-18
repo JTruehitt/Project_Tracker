@@ -1,18 +1,19 @@
-*,*::before,::after {
-    box-sizing: border-box;
+*,
+*::before,
+::after {
+  box-sizing: border-box;
 }
 
 :root {
-    --step--2: clamp(0.64rem, calc(0.58rem + 0.28vw), 0.80rem);
-    --step--1: clamp(0.80rem, calc(0.73rem + 0.35vw), 1.00rem);
-    --step-0: clamp(1.00rem, calc(0.91rem + 0.43vw), 1.25rem);
-    --step-1: clamp(1.25rem, calc(1.14rem + 0.54vw), 1.56rem);
-    --step-2: clamp(1.56rem, calc(1.43rem + 0.68vw), 1.95rem);
-    --step-3: clamp(1.95rem, calc(1.78rem + 0.85vw), 2.44rem);
-    --step-4: clamp(2.44rem, calc(2.23rem + 1.06vw), 3.05rem);
-    --step-5: clamp(3.05rem, calc(2.79rem + 1.33vw), 3.82rem);
-  }
-
+  --step--2: clamp(0.64rem, calc(0.58rem + 0.28vw), 0.8rem);
+  --step--1: clamp(0.8rem, calc(0.73rem + 0.35vw), 1rem);
+  --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+  --step-1: clamp(1.25rem, calc(1.14rem + 0.54vw), 1.56rem);
+  --step-2: clamp(1.56rem, calc(1.43rem + 0.68vw), 1.95rem);
+  --step-3: clamp(1.95rem, calc(1.78rem + 0.85vw), 2.44rem);
+  --step-4: clamp(2.44rem, calc(2.23rem + 1.06vw), 3.05rem);
+  --step-5: clamp(3.05rem, calc(2.79rem + 1.33vw), 3.82rem);
+}
 
 .hero {
   display: flex;
@@ -25,7 +26,7 @@
 
 .hero > * {
   margin-block: 1rem;
-  font-size: var(--step-1)
+  font-size: var(--step-1);
 }
 
 .hero > :first-child:not(h1) {
@@ -38,16 +39,16 @@
 
 .hero > h1 {
   margin-block: auto;
-  font-size: var(--step-5)
+  font-size: var(--step-5);
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 .custom-form-label {
-    display: flex;
-    font-size: var(--step-0);
+  display: flex;
+  font-size: var(--step-0);
 }
 
 #datepicker {

@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
+    />
+    <!-- jQuery UI -->
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
     />
     <link rel="stylesheet" href="/assets/styles.css" />
     <title>Project Tracker</title>
@@ -68,23 +74,42 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form class="projectForm">
-                <div class="mb-3">
+              <form class="projectForm vstack gap-4">
+                <div class="">
                   <label for="projectName" class="form-label custom-form-label"
                     >Project Name</label
                   >
                   <textarea
-                    class="form-control"
+                    class="form-control border border-primary-subtle"
                     id="projectName"
                     rows="1"
                   ></textarea>
                 </div>
-                <select class="form-select" aria-label="Project type select">
-                  <option selected>Project Type</option>
-                  <option value="1">Type 1</option>
-                  <option value="2">Type 2</option>
-                  <option value="3">Type 3</option>
-                </select>
+                <div>
+                  <label for="projectType" class="form-label custom-form-label"
+                    >Project Type</label
+                  >
+                  <select
+                    class="form-select border border-primary-subtle"
+                    id="projectType"
+                    aria-label="Project type select"
+                  >
+                    <option selected>Select...</option>
+                    <option value="1">Type 1</option>
+                    <option value="2">Type 2</option>
+                    <option value="3">Type 3</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="datepicker" class="form-label custom-form-label"
+                    >Due Date</label
+                  >
+                  <input
+                    class="w-100 d-block border border-primary-subtle form-control"
+                    type="text"
+                    id="datepicker"
+                  />
+                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -95,15 +120,22 @@
               >
                 Nevermind
               </button>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary submitBtn">
+                Submit
+              </button>
             </div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- dayjs -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <!-- main jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <!-- bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -112,5 +144,3 @@
     <script src="/assets/script.js"></script>
   </body>
 </html>
-
-

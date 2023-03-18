@@ -13,6 +13,7 @@
     --step-5: clamp(3.05rem, calc(2.79rem + 1.33vw), 3.82rem);
   }
 
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -47,4 +48,9 @@ textarea {
 .custom-form-label {
     display: flex;
     font-size: var(--step-0);
+}
+
+#datepicker {
+  outline: none;
+  border: none;
 }

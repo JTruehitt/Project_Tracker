@@ -98,9 +98,7 @@ function fetchProjects() {
       projectEntry.append(projectTypeDisplay);
       projectEntry.append(projectDueDateDisplay);
 
-      console.log(projectEntry.html());
-      // mainProjectDisplay.append(projectEntry);
-      $("tbody").append($(projectEntry));
+      mainProjectDisplay.append(projectEntry);
     }
   }
 }

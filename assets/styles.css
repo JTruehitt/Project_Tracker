@@ -18,7 +18,7 @@
 .hero {
   display: flex;
   flex-direction: column;
-  min-block-size: 100vh;
+  min-block-size: 50vh;
   padding: 1rem;
   background-color: #114466;
   color: #fff;

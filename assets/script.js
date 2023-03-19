@@ -8,6 +8,10 @@ let projectNameInput = $("#projectName");
 let projectTypeInput = $("#projectType");
 let dueDateInput = $("#datepicker");
 let formSubmitBtn = $(".submitBtn");
+let mainProjectDisplay = $(".mainProjectDisplay");
+
+let numberOfProjects = [];
+let projectList = [];
 
 currentDateDisplay.text(currentDate);
 currentTimeDisplay.text(currentTime);
@@ -36,16 +40,72 @@ formSubmitBtn.click(function () {
     projectNumber = 1;
   }
 
+  numberOfProjects = JSON.parse(localStorage.getItem("numberOfProjects"));
+  if (numberOfProjects === null) {
+    numberOfProjects = [];
+  }
+  numberOfProjects.push(projectNumber);
+
+  localStorage.setItem("numberOfProjects", JSON.stringify(numberOfProjects));
+
   let projectName = projectNameInput.val();
   let projectType = projectTypeInput.val();
   let dueDate = dueDateInput.val();
 
-  let projectDetails = { projectName, projectType, dueDate };
+  let projectDetails = { projectNumber, projectName, projectType, dueDate };
 
-  localStorage.setItem(projectNumber, JSON.stringify(projectDetails));
+  projectList = JSON.parse(localStorage.getItem("projectList"));
+  if (projectList === null) {
+    projectList = [];
+  }
+
+  projectList.push(projectDetails);
+
+  localStorage.setItem("projectList", JSON.stringify(projectList));
 
   projectNumber++;
   localStorage.setItem("projectNumber", projectNumber);
 });
+
+function fetchProjects() {
+  projectList = JSON.parse(localStorage.getItem("projectList"));
+  numberOfProjects = JSON.parse(localStorage.getItem("numberOfProjects"));
+  console.log(projectList);
+  console.log(numberOfProjects);
+
+  if (projectList === null) {
+    return;
+  } else {
+    for (let i = 0; i < projectList.length; i++) {
+      let projectEntry = $("<tr>");
+      let projectNumberDisplay = $("<td>");
+      let projectNameDisplay = $("<td>");
+      let projectTypeDisplay = $("<td>");
+      let projectDueDateDisplay = $("<td>");
+
+      projectNumberDisplay.val(projectList[i].projectNumber);
+      projectNameDisplay.val(projectList[i].projectName);
+      projectTypeDisplay.val(projectList[i].projectType);
+      projectDueDateDisplay.val(projectList[i].dueDate);
+
+      console.log(projectNameDisplay.val());
+      console.log(projectNumberDisplay.val());
+      console.log(projectTypeDisplay.val());
+      console.log(projectDueDateDisplay.val());
+
+      projectEntry.append(projectNumberDisplay);
+      projectEntry.append(projectNameDisplay);
+      projectEntry.append(projectTypeDisplay);
+      projectEntry.append(projectDueDateDisplay);
+
+      console.log(projectEntry.html());
+      // mainProjectDisplay.append(projectEntry);
+      $("tbody").append($(projectEntry));
+    }
+  }
+}
+
+console.log(localStorage);
+fetchProjects();
 
 // localStorage.clear()

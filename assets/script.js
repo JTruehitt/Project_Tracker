@@ -83,15 +83,10 @@ function fetchProjects() {
       let projectTypeDisplay = $("<td>");
       let projectDueDateDisplay = $("<td>");
 
-      projectNumberDisplay.val(projectList[i].projectNumber);
-      projectNameDisplay.val(projectList[i].projectName);
-      projectTypeDisplay.val(projectList[i].projectType);
-      projectDueDateDisplay.val(projectList[i].dueDate);
-
-      console.log(projectNameDisplay.val());
-      console.log(projectNumberDisplay.val());
-      console.log(projectTypeDisplay.val());
-      console.log(projectDueDateDisplay.val());
+      projectNumberDisplay.text(projectList[i].projectNumber);
+      projectNameDisplay.text(projectList[i].projectName);
+      projectTypeDisplay.text(projectList[i].projectType);
+      projectDueDateDisplay.text(projectList[i].dueDate);
 
       projectEntry.append(projectNumberDisplay);
       projectEntry.append(projectNameDisplay);

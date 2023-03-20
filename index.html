@@ -95,9 +95,9 @@
                     aria-label="Project type select"
                   >
                     <option selected>Select...</option>
-                    <option value="1">Type 1</option>
-                    <option value="2">Type 2</option>
-                    <option value="3">Type 3</option>
+                    <option value="Front End">Front End</option>
+                    <option value="Back End">Back End</option>
+                    <option value="Full Stack">Full Stack</option>
                   </select>
                 </div>
                 <div>
@@ -134,19 +134,38 @@
     </header>
 
     <main class="container">
-      <table class="table text-dark">
+      <table class="table text-dark text-center">
+        <h3 class="open-projects-title text-center mt-3">Open Projects</h3>
         <thead>
           <tr>
-            <th scope="col">Project Number</th>
-            <th scope="col">Project Name</th>
-            <th scope="col">Project Type</th>
-            <th scope="col">Due Date</th>
+            <th scope="col-1">Project #</th>
+            <th scope="col-3">Project Name</th>
+            <th scope="col-2">Project Type</th>
+            <th scope="col-2">Due Date</th>
           </tr>
         </thead>
-        <tbody class="mainProjectDisplay">
-        </tbody>
+        <tbody class="mainProjectDisplay"></tbody>
       </table>
+
+      <div class="completed-projects-container hide">
+        <table class="table text-dark text-center">
+          <h3 class="completed-projects-title text-center">Completed Projects</h3>
+          <thead>
+            <tr>
+              <th scope="col-1">Project #</th>
+              <th scope="col-3">Project Name</th>
+              <th scope="col-2">Project Type</th>
+              <th scope="col-2">Completed On</th>
+            </tr>
+          </thead>
+          <tbody class="completedProjectDisplay"></tbody>
+        </table>
+      </div>
+
+      <div class="row justify-content-center mt-3"><button class="btn btn-danger clearAllBtn col-8">Clear All Projects</button></div>
     </main>
+
+
 
     <!-- dayjs -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>

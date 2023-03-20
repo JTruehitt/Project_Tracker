@@ -55,3 +55,7 @@ textarea {
   outline: none;
   border: none;
 }
+
+.hide {
+  display: none;
+}

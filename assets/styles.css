@@ -59,3 +59,17 @@ textarea {
 .hide {
   display: none;
 }
+
+.card-custom {
+  background-color: #114466;
+  color: #fff
+}
+
+.btn-custom {
+  background-color: #fff;
+}
+
+.modal-custom {
+  background-color: #114466;
+  color: #fff;
+}

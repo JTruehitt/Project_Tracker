@@ -25,25 +25,24 @@
       <p class="timeDisplay">
         <span class="currentDate"></span> at <span class="currentTime"></span>
       </p>
-      <h1>Project Tracker</h1>
+      <h1>Project Tracker 1.0</h1>
       <div class="container">
         <div class="row justify-content-center">
           <div class="card text-center col-8">
             <div class="card-header text-dark">
-              Start tracking projects now!
+              The easy way to stay on top of your deadlines.
             </div>
-            <div class="card-body text-dark">
-              <h5 class="card-title">How this works...</h5>
-              <p class="card-text">
-                Fill out the following info to have your project tracked
+            <div class="card-body card-custom rounded">
+              <p class="card-text fs-5 px-5">
+                Submit your project details using the button below.
               </p>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-outline-success btn-lg btn-custom"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
               >
-                Fill out this form
+                Submit Project
               </button>
             </div>
             <div class="card-footer text-muted"></div>
@@ -64,7 +63,7 @@
           <div class="modal-content text-dark">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Project Info
+                Project Details
               </h1>
               <button
                 type="button"
@@ -73,7 +72,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-custom">
               <form class="projectForm vstack gap-4">
                 <div class="">
                   <label for="projectName" class="form-label custom-form-label"
@@ -94,7 +93,6 @@
                     id="projectType"
                     aria-label="Project type select"
                   >
-                    <option selected>Select...</option>
                     <option value="Front End">Front End</option>
                     <option value="Back End">Back End</option>
                     <option value="Full Stack">Full Stack</option>
@@ -138,10 +136,10 @@
         <h3 class="open-projects-title text-center mt-3">Open Projects</h3>
         <thead>
           <tr>
-            <th scope="col-1">Project #</th>
-            <th scope="col-3">Project Name</th>
-            <th scope="col-2">Project Type</th>
-            <th scope="col-2">Due Date</th>
+            <th>Project #</th>
+            <th>Project Name</th>
+            <th>Project Type</th>
+            <th>Due Date</th>
           </tr>
         </thead>
         <tbody class="mainProjectDisplay"></tbody>
@@ -154,10 +152,10 @@
           </h3>
           <thead>
             <tr>
-              <th scope="col-1">Project #</th>
-              <th scope="col-3">Project Name</th>
-              <th scope="col-2">Project Type</th>
-              <th scope="col-2">Completed On</th>
+              <th>Project #</th>
+              <th>Project Name</th>
+              <th>Project Type</th>
+              <th>Completed On</th>
             </tr>
           </thead>
           <tbody class="completedProjectDisplay"></tbody>

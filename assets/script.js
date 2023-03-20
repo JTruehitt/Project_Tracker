@@ -33,8 +33,8 @@ $(function () {
     });
   });
 
-  // on form submit, sets project number which will act as the key to save project, and will iterate this number to allow to save different projects in storage
-  // grabs values from form inputs, adds them to projectDetails object, and sends them to local storage
+  // on form submit, sets project number which will be used to identify project in later functions. projectNumber will iterate with each project created.
+  // grabs values from form inputs, adds them to projectDetails object, and sends them to local storage within the full projectList array
   formSubmitBtn.click(function () {
     let projectNumber = localStorage.getItem("projectNumber");
     if (projectNumber === null) {
@@ -62,6 +62,12 @@ $(function () {
     fetchProjects();
   });
 
+  // this function renders any submitted projects to the page
+  // first empties the display annd pulls in the saved projectList from local storage
+  // for each saved project, creates a new table row, several table data values, and two buttons for complete and delete
+  // adds the user input values from the form to the corresponding data cells, then appends the cells to the table row and appends the row to the main table
+  // resets the form fields so they are empty should the user want to input another project
+  // utilizes day.js to check due date vs current date and color code the table row accordingly
   function fetchProjects() {
     mainProjectDisplay.empty();
     projectList = JSON.parse(localStorage.getItem("projectList"));
@@ -120,6 +126,12 @@ $(function () {
     }
   }
 
+  // this event listener handles when the user clicks the complete button
+  // locates the project number based on the value in the corresponding projectNumber cell of the buttons grandparent
+  // uses this projectNumber to determine the index of the completed project within the full project list
+  // updates the "dueDate" to the current date, which will reflect the completed date in the completed projects table
+  // splices the completed project out of the full projectList and pushes it to the completedProjects array.
+  // pushes the updated projectsList and completedProjects list to local storage and calls function to display completed projects. 
   $(mainProjectDisplay).click(function (e) {
     if (!e.target.matches("button.projectCompleteBtn")) {
       return;
@@ -163,6 +175,10 @@ $(function () {
     }
   });
 
+  // this function renders the completed projects to the page so the user can see all the great stuff they've completed
+  // starts by emptying the table and pulls in the completedProjectsList from local storage.
+  // displays the completed table if this is the first completed project
+  // similar to how the main projects list was rendered, iterates through the completedProjectsList array and pushes each project to the page
   function displayCompleted() {
     completedProjectDisplay.empty();
     completedProjectsList = JSON.parse(
@@ -200,6 +216,10 @@ $(function () {
     }
   }
 
+  // this function deletes an open project from the page and from local storage.
+  // obtains the project number of the grandparent of the clicked delete button similar to how the completed button was set up
+  // uses the index of the deleted project and splices it out of the projectList. splice is used so that no blank spaces are left over.
+  // calls fetchProjects to reload the page and show the project has been deleted. 
   $(mainProjectDisplay).click(function (e) {
     if (!e.target.matches("button.projectDeleteBtn")) {
       return;
@@ -225,11 +245,15 @@ $(function () {
     }
   });
 
+  // the fetchProjects and displayCompleted functions are called on load so that any saved projects render for the user upon access of the app.
   fetchProjects();
   displayCompleted();
+
+  // adds listener to the clear all button to, well, clear all when clicked.
+  $(".clearAllBtn").click(function () {
+    localStorage.clear();
+    location.reload();
+  });
 });
 
-$(".clearAllBtn").click(function () {
-  localStorage.clear();
-  location.reload();
-});
+
